@@ -1,0 +1,8 @@
+<h1>Lista gości</h1>
+    <ul>
+    {% for guest in guests_list %}
+        <li>
+            {{ guest.name }} {{ guest.surname }}
+        </li>
+    {% endfor %}
+    </ul>

@@ -1,7 +1,10 @@
+from audioop import reverse
+
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import CreateView, DetailView, FormView, ListView, TemplateView, UpdateView
 from django.template import loader
-from .models import Question
+from .models import Question, Guests
 
 
 def index(request):
@@ -25,3 +28,15 @@ def vote(request, question_id):
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'love/detail.html', {'question':question})
+
+
+class GuestViev(CreateView):
+    model = Guests
+    fields = ['name', 'surname']
+    success_url = '/love/guestslist'
+
+
+
+class GuestListView(ListView):
+    model = Guests
+    template_name = 'love/guests_list.html'
