@@ -1,9 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Gości</title>
+</head>
+<style>
+table, td, td {
+  border:1px solid black;
+}
+</style>
+<body>
 <h1>Lista gości</h1>
-    <ul>
+    <table>
+    <tr>
+        <td><b>Imię i nazwisko</b></td>
+    </tr>
     {% for guest in guests_list %}
-        <li>
-            {{ guest.name }} {{ guest.surname }}
-        </li>
+        <tr>
+            <td>{{ guest.name }} {{ guest.surname }}</td>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
 <h5><a href={% url "guest" %}>Dodaj kolejnego gościa</a> </h5>
+</body>
+</html>
