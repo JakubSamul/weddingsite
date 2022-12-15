@@ -1,0 +1,4 @@
+<h1>Witamy</h1>
+{% if user.is_authenticated %}
+<h5><a href={% url "guests-list" %}>Lista gości</a> </h5>
+{% endif %}
