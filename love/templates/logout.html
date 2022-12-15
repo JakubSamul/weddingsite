@@ -8,13 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-{% if user.is_authenticated %}
-    <h3>Witaj {{ user.username }}!</h3>
-    <h5><a href="{% url 'logout' %}">Wyloguj</a></h5>
-    <h5><a href="{% url 'guests-list' %}">Lista gości</a></h5>
-{% else %}
-    <h3>Nie jesteś zalogowany</h3>
-    <h5"><a href="{% url 'login' %}">Logowanie</a></h5>
-{% endif %}
+    <h1>Zosyałeś pomylnie wylogowany</h1>
+    <h2>Przejż do strony głównej</h2>
+    <p><a href="/">Strona główna</a></p>
 </body>
 </html>
