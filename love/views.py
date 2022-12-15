@@ -14,7 +14,7 @@ from .models import Guests
 @method_decorator(login_required, name="dispatch")
 class GuestView(CreateView):
     model = Guests
-    fields = ['name', 'surname']
+    fields = ['name', 'surname', 'side']
     success_url = '/guestslist'
 
 

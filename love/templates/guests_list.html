@@ -17,10 +17,16 @@ table, td, td {
     <table>
     <tr>
         <td><b>Imię i nazwisko</b></td>
+        <td><b>Strona</b></td>
     </tr>
     {% for guest in guests_list %}
         <tr>
             <td>{{ guest.name }} {{ guest.surname }}</td>
+            <td>
+                {% if guest.side == '1' %} Kuba
+                {% else %} Basia
+            </td>
+            {% endif %}
         </tr>
     {% endfor %}
     </table>
