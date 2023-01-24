@@ -23,7 +23,7 @@ table, td, td {
         <tr>
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>
-                {% if guest.side == '1' %} Kuba
+                {% if guest.side == 'K' %} Kuba
                 {% else %} Basia
             </td>
             {% endif %}
@@ -31,5 +31,6 @@ table, td, td {
     {% endfor %}
     </table>
 <h5><a href={% url "guest" %}>Dodaj kolejnego gościa</a> </h5>
+<h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
 </body>
 </html>
