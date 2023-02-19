@@ -10,19 +10,29 @@ from django.views.generic import (
     UpdateView
 )
 from .models import Guests
-
-
-@method_decorator(login_required, name="dispatch")
-class GuestView(CreateView):
-    model = Guests
-    fields = ['name', 'surname', 'side']
-    success_url = '/guestslist'
+from .forms import GuestsSearchForm
+from .reports import summary_per_category
 
 
 @method_decorator(login_required, name="dispatch")
 class GuestListView(ListView):
     model = Guests
     template_name = 'guests_list.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        queryset = object_list if object_list is not None else self.object_list
+
+        form = GuestsSearchForm(self.request.GET)
+        if form.is_valid():
+            name = form.cleaned_data.get('name', '').strip()
+            if name:
+                queryset = queryset.filter(name__icontains=name)
+           
+        return super().get_context_data(
+            form=form,
+            object_list=queryset,
+            # summary_per_category=summary_per_category(queryset),
+            **kwargs)
 
 
 class HomePageView(TemplateView):

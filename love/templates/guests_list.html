@@ -16,17 +16,15 @@ table, td, td {
 <h1>Lista gości</h1>
     <table>
     <tr>
+        <td><b>L.P.</b></td>
         <td><b>Imię i nazwisko</b></td>
         <td><b>Strona</b></td>
     </tr>
     {% for guest in guests_list %}
         <tr>
+            <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
             <td>{{ guest.name }} {{ guest.surname }}</td>
-            <td>
-                {% if guest.side == 'K' %} Kuba
-                {% else %} Basia
-            </td>
-            {% endif %}
+            <td>{{ obj.category|default:"-" }}</td>
         </tr>
     {% endfor %}
     </table>

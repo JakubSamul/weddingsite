@@ -1,8 +1,12 @@
-# from django import forms
-#
-#
-# CHOICE_SIDE = (('1', 'Jakub'), ('2', 'Barbara'))
-#
-#
-# class ChoiceSideField(forms.forms):
-#     choice_side = forms.ChoiceField(choices=CHOICE_SIDE)
+from django import forms
+from .models import Guests
+
+
+class GuestsSearchForm(forms.ModelForm):
+    class Meta:
+        model = Guests
+        fields = ('name',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].required = False
