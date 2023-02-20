@@ -8,11 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Potwierdź usunięcie "{{object}}"</h1>
 <form method="post" action="">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit">delete</button>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">save</button>
 </form>
 </body>
 </html>

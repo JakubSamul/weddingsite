@@ -28,7 +28,10 @@ table, td, td {
             <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ obj.category|default:"-" }}</td>
-            <td><a href={% url "guestslist-delete" %}>delete</a></td>
+            <td>
+                <a href={% url "guestslist-delete" guest.id %}>delete</a>
+                <a href={% url "guestslist-update" guest.id %}>update</a>
+            </td>
         </tr>
     {% endfor %}
     </table>

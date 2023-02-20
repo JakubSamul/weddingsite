@@ -18,7 +18,10 @@ urlpatterns = [
     path("logout/", 
          LogoutView.as_view(), 
          name = "logout"),
-    path('guestlist/add/', 
+    path('guestslist/', 
+         GuestListView.as_view(), 
+         name = 'guests-list'),
+     path('guestlist/add/', 
          CreateView.as_view(
             model = Guests,
             fields = '__all__',
@@ -26,14 +29,19 @@ urlpatterns = [
             template_name = 'guests_form.html'
          ), 
          name='guestslist-add'),
-    path('guestslist/', 
-         GuestListView.as_view(), 
-         name = 'guests-list'),
      path('guestslist/<int:pk>/delete/',
           DeleteView.as_view(
                model = Guests,
-               success_url = reverse_lazy('guests_list'),
+               success_url = reverse_lazy('guests-list'),
                template_name = 'guests_delete.html'
           ),
-          name='guestslist-delete')
+          name='guestslist-delete'),
+     path('guestslist/<int:pk>/edit/',
+         UpdateView.as_view(
+            model=Guests,
+            fields='__all__',
+            success_url=reverse_lazy('guests-list'),
+            template_name='guests_update.html'
+         ),
+         name = 'guestslist-update')
 ]
