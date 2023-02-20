@@ -14,21 +14,24 @@ table, td, td {
 </style>
 <body>
 <h1>Lista gości</h1>
+<h5><a href={% url "guestslist-add" %}>Dodaj kolejnego gościa</a></h5>
+<h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
     <table>
     <tr>
         <td><b>L.P.</b></td>
         <td><b>Imię i nazwisko</b></td>
         <td><b>Strona</b></td>
+        <td><b></b></td>
     </tr>
     {% for guest in guests_list %}
         <tr>
             <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ obj.category|default:"-" }}</td>
+            <td><a href={% url "guestslist-delete" %}>delete</a></td>
         </tr>
     {% endfor %}
     </table>
-<h5><a href={% url "guest" %}>Dodaj kolejnego gościa</a> </h5>
-<h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
+
 </body>
 </html>
