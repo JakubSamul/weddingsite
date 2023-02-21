@@ -9,7 +9,7 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guests
+from .models import Guests, Gifts
 from .forms import GuestsSearchForm
 from .reports import summary_per_category
 
@@ -33,6 +33,11 @@ class GuestListView(ListView):
             object_list=queryset,
             # summary_per_category=summary_per_category(queryset),
             **kwargs)
+
+
+class GiftsListView(ListView):
+    model = Gifts
+    template_name = 'gifts_list.html'
 
 
 class HomePageView(TemplateView):

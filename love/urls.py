@@ -4,7 +4,8 @@ from .views import (
     GuestListView,
     HomePageView,
     LoginView,
-    LogoutView
+    LogoutView,
+    GiftsListView
 )
 from .models import Guests
 
@@ -43,5 +44,8 @@ urlpatterns = [
             success_url=reverse_lazy('guests-list'),
             template_name='guests_update.html'
          ),
-         name = 'guestslist-update')
+         name = 'guestslist-update'),
+     path('giftslist/',
+          GiftsListView.as_view(),
+          name = 'gifts-list')
 ]
