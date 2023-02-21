@@ -15,6 +15,7 @@ table, td, td {
 <body>
 <h1>Lista Prezentów</h1>
 <h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
+<h5><a href={% url "gifts-add" %}>Dodaj kolejny prezent</a></h5>
     <table>
     <tr>
         <td><b>L.P.</b></td>
@@ -26,8 +27,8 @@ table, td, td {
             <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
             <td>{{ gift.name }}</td>
             <td>
-                <a href={% url "" guest.id %}>add</a>
-                <a href={% url "" guest.id %}>delete</a>
+                <a href={% url "gifts-update" gift.id %}>update</a>
+                <a href={% url "gifts-delete" gift.id %}>delete</a>
             </td>
         </tr>
     {% endfor %}

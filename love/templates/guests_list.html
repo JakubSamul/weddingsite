@@ -14,8 +14,8 @@ table, td, td {
 </style>
 <body>
 <h1>Lista gości</h1>
-<h5><a href={% url "guestslist-add" %}>Dodaj kolejnego gościa</a></h5>
 <h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
+<h5><a href={% url "guests-add" %}>Dodaj kolejnego gościa</a></h5>
     <table>
     <tr>
         <td><b>L.P.</b></td>
@@ -29,8 +29,8 @@ table, td, td {
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ obj.category|default:"-" }}</td>
             <td>
-                <a href={% url "guestslist-delete" guest.id %}>delete</a>
-                <a href={% url "guestslist-update" guest.id %}>update</a>
+                <a href={% url "guests-update" guest.id %}>update</a>
+                <a href={% url "guests-delete" guest.id %}>delete</a>
             </td>
         </tr>
     {% endfor %}
