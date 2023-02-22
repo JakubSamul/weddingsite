@@ -5,21 +5,22 @@ from .views import (
     HomePageView,
     LoginView,
     LogoutView,
-    GiftsListView
+    GiftsListView,
+    SideCreateView
 )
-from .models import Guests, Gifts
+from .models import Guests, Gifts, Side
 
 urlpatterns = [
-    path('', 
+     path('', 
          HomePageView.as_view(), 
          name = 'homepage'),
-    path("login/", 
+     path("login/", 
          LoginView.as_view(), 
          name = "login"),
-    path("logout/", 
+     path("logout/", 
          LogoutView.as_view(), 
          name = "logout"),
-    path('guestslist/', 
+     path('guestslist/', 
          GuestListView.as_view(), 
          name = 'guests-list'),
      path('guestlist/add/', 
@@ -71,4 +72,12 @@ urlpatterns = [
             template_name='gifts_update.html'
          ),
          name = 'gifts-update'),
+     path('side/add/', 
+         SideCreateView.as_view(
+            model = Side,
+            fields = '__all__',
+            success_url = reverse_lazy('guests-list'),
+            template_name = 'side_form.html'
+         ), 
+         name='side-add'),
 ]

@@ -9,7 +9,7 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guests, Gifts
+from .models import Guests, Gifts, Side
 from .forms import GuestsSearchForm
 from .reports import summary_per_category
 
@@ -50,3 +50,9 @@ class LoginView(LoginView):
 
 class LogoutView(LogoutView):
     template_name = "logout.html"
+
+
+class SideCreateView(CreateView):
+    model = Side,
+    template_name = 'side_form.html'
+
