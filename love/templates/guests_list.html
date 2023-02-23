@@ -15,8 +15,10 @@ table, td, td {
 <body>
 <h1>Lista gości</h1>
 <h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
+{% if user.is_superuser %}
 <h5><a href={% url "guests-add" %}>Dodaj kolejnego gościa</a></h5>
 <h5><a href={% url "side-add" %}>Dodaj stronę</a></h5>
+{% endif %}
     <table>
     <tr>
         <td><b>L.P.</b></td>

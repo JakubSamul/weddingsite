@@ -6,7 +6,8 @@ from .views import (
     LoginView,
     LogoutView,
     GiftsListView,
-    SideCreateView
+    SideCreateView,
+    GuestCreateView
 )
 from .models import Guests, Gifts, Side
 
@@ -24,7 +25,7 @@ urlpatterns = [
          GuestListView.as_view(), 
          name = 'guests-list'),
      path('guestlist/add/', 
-         CreateView.as_view(
+         GuestCreateView.as_view(
             model = Guests,
             fields = '__all__',
             success_url = reverse_lazy('guests-list'),

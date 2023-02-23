@@ -12,6 +12,12 @@ from django.views.generic import (
 from .models import Guests, Gifts, Side
 from .forms import GuestsSearchForm
 from .reports import summary_per_category
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+class SuperUserCheck(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 @method_decorator(login_required, name="dispatch")
@@ -52,7 +58,12 @@ class LogoutView(LogoutView):
     template_name = "logout.html"
 
 
-class SideCreateView(CreateView):
-    model = Side,
+class SideCreateView(SuperUserCheck, CreateView):
+    model = Side
+    template_name = 'side_form.html'
+
+
+class GuestCreateView(SuperUserCheck, CreateView):
+    model = Guests
     template_name = 'side_form.html'
 
