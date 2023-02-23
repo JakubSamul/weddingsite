@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html"%}
+
+{% block content %}
 {% if user.is_authenticated %}
     <h3>Witaj {{ user.username }}!</h3>
     <h5><a href="{% url 'logout' %}">Wyloguj</a></h5>
@@ -17,5 +10,4 @@
     <h3>Nie jesteś zalogowany</h3>
     <h5"><a href="{% url 'login' %}">Logowanie</a></h5>
 {% endif %}
-</body>
-</html>
+{% endblock %}

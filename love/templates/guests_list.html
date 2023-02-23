@@ -1,19 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista Gości</title>
-</head>
+{% extends "base.html"%}
+
+{% block content %}
 <style>
 table, td, td {
   border:1px solid black;
 }
 </style>
-<body>
-<h1>Lista gości</h1>
 <h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
 {% if user.is_superuser %}
 <h5><a href={% url "guests-add" %}>Dodaj kolejnego gościa</a></h5>
@@ -32,12 +24,12 @@ table, td, td {
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ obj.category|default:"-" }}</td>
             <td>
+                {% if user.is_superuser %}
                 <a href={% url "guests-update" guest.id %}>update</a>
                 <a href={% url "guests-delete" guest.id %}>delete</a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}
     </table>
-
-</body>
-</html>
+{% endblock %}
