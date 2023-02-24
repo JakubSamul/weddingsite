@@ -16,6 +16,7 @@ class Guests(models.Model):
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     category = models.ForeignKey(Side, models.PROTECT, null=True, blank=True)
+    confirmation = models.CharField(max_length=50)
 
     def __str__(self):
         return f'{self.name}'

@@ -22,7 +22,7 @@ table, td, td {
         <tr>
             <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
             <td>{{ guest.name }} {{ guest.surname }}</td>
-            <td>{{ obj.category|default:"-" }}</td>
+            <td>{{ guest.category|default:"-" }}</td>
             <td>
                 {% if user.is_superuser %}
                 <a href={% url "guests-update" guest.id %}>update</a>
