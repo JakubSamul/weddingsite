@@ -4,7 +4,8 @@
 {% if user.is_authenticated %}
     <h3>Witaj {{ user.username }}!</h3>
     <h5><a href="{% url 'logout' %}">Wyloguj</a></h5>
-    <h5><a href="{% url 'guests-list' %}">Lista gości</a></h5>
+    <h5><a href="{% url 'guests-list' %}">Lista gości admin</a></h5>
+    <h5><a href="{% url 'guests-conf-list' %}">Lista gości</a></h5>
     <h5><a href="{% url 'gifts-list' %}">Lista prezentów</a></h5>
 {% else %}
     <h3>Nie jesteś zalogowany</h3>

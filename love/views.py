@@ -20,8 +20,7 @@ class SuperUserCheck(UserPassesTestMixin):
         return self.request.user.is_superuser
 
 
-@method_decorator(login_required, name="dispatch")
-class GuestListView(ListView):
+class GuestListView(SuperUserCheck, ListView):
     model = Guests
     template_name = 'guests_list.html'
 
@@ -37,8 +36,12 @@ class GuestListView(ListView):
         return super().get_context_data(
             form=form,
             object_list=queryset,
-            # summary_per_category=summary_per_category(queryset),
             **kwargs)
+
+
+class GuestConfListView(ListView):
+    model = Guests
+    template_name = 'guestsconf_list.html'
 
 
 class GiftsListView(ListView):

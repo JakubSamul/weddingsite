@@ -7,7 +7,8 @@ from .views import (
     LogoutView,
     GiftsListView,
     SideCreateView,
-    GuestCreateView
+    GuestCreateView,
+    GuestConfListView
 )
 from .models import Guests, Gifts, Side
 
@@ -24,6 +25,9 @@ urlpatterns = [
      path('guestslist/', 
          GuestListView.as_view(), 
          name = 'guests-list'),
+    path('guestsconflist/', 
+         GuestConfListView.as_view(), 
+         name = 'guests-conf-list'),
      path('guestslist/add/', 
          GuestCreateView.as_view(
             model = Guests,
