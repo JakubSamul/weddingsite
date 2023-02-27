@@ -6,7 +6,7 @@ table, td, td {
   border:1px solid black;
 }
 </style>
-<h1>Lista Prezentów</h1>
+<h1>Lista Gości</h1>
 <h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
 
     <table>
@@ -16,9 +16,9 @@ table, td, td {
         <td><b>Strona</b></td>
     </tr>
     {% for guest in guests_list %}
-    {% if guest.confirmation == Yes %}
+    {% if guest.confirmation %}
         <tr>
-            <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
+            <td>{{ page_guest.start_index|add:forloop.counter0 }}.</td>
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ guest.side|default:"-" }}</td>
         </tr>
