@@ -17,6 +17,7 @@ table, td, td {
         <td><b>Imię i nazwisko</b></td>
         <td><b>Strona</b></td>
         <td><b>Potwierdzenie</b></td>
+        <td><b>Preferencje</b></td>
         <td><b></b></td>
     </tr>
     {% for guest in guests_list %}
@@ -25,6 +26,7 @@ table, td, td {
             <td>{{ guest.name }} {{ guest.surname }}</td>
             <td>{{ guest.side|default:"-" }}</td>
             <td>{{ guest.confirmation|default:"NP" }}</td>
+            <td></td>            
             <td>
                 {% if user.is_superuser %}
                 <a href={% url "guests-update" guest.id %}>update</a>
