@@ -50,7 +50,7 @@ class GiftsListView(ListView):
 
 
 class HomePageView(TemplateView):
-    template_name = 'homepage.html'
+    template_name = 'index.html'
 
 
 class LoginView(LoginView):
