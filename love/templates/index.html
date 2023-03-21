@@ -16,7 +16,7 @@
     <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href={% url "guests-conf-list" %}>Lista Gości</a>
         <a href="searvices.html">Searvices</a>
         <a href="testimonial.html">Testimonial</a>
         <a href="works.html">Works</a>
@@ -660,7 +660,8 @@
         </div>
     </div>
     <!-- end contact -->
-    <!-- footer -->
+    {% endblock %}
+    {% block footer %}
     <footer>
         <div class="footer">
             <div class="container">
@@ -758,7 +759,7 @@
          </div>
       </div>
       </footer>
-      <!-- end footer -->
+      {% endblock %}
       <!-- Javascript files-->
       <script src="js/jquery.min.js "></script>
       <script src="js/bootstrap.bundle.min.js "></script>
