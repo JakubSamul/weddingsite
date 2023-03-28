@@ -9,7 +9,7 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guests, Gifts, Side
+from .models import Guests, Gifts
 from .forms import GuestsSearchForm
 from .reports import summary_per_category
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -59,11 +59,6 @@ class LoginView(LoginView):
 
 class LogoutView(LogoutView):
     template_name = "logout.html"
-
-
-class SideCreateView(SuperUserCheck, CreateView):
-    model = Side
-    template_name = 'side_form.html'
 
 
 class GuestCreateView(SuperUserCheck, CreateView):

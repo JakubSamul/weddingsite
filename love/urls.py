@@ -6,11 +6,10 @@ from .views import (
     LoginView,
     LogoutView,
     GiftsListView,
-    SideCreateView,
     GuestCreateView,
     GuestConfListView
 )
-from .models import Guests, Gifts, Side
+from .models import Guests, Gifts
 
 urlpatterns = [
      path('', 
@@ -77,12 +76,4 @@ urlpatterns = [
             template_name='gifts_update.html'
          ),
          name = 'gifts-update'),
-     path('side/add/', 
-         SideCreateView.as_view(
-            model = Side,
-            fields = '__all__',
-            success_url = reverse_lazy('guests-list'),
-            template_name = 'side_form.html'
-         ), 
-         name='side-add'),
 ]
