@@ -17,7 +17,7 @@ class Guests(models.Model):
     surname = models.CharField(max_length=50)
     side = models.CharField(choices=SIDE, null=True, blank=True, max_length=5)
     confirmation = models.BooleanField(default=False, blank=True)
-    accompanying = models.ManyToManyField('Guests', null=True, blank=True)
+    accompanying = models.ManyToManyField('Guests', blank=True)
     preferences = models.CharField(choices=FOODS, null=True, blank=True, max_length=4)
 
     def __str__(self):
