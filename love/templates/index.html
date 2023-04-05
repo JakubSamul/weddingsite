@@ -76,14 +76,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">Wesele<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="{% url 'homepage' %}">Wesele<strong>.</strong></a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="index.html">Strona startowa</a></li>
+						<li class="active"><a href="{% url 'login' %}">Zaloguj</a></li>
 						<li><a href="about.html">Nasza historia</a></li>
 						<li class="has-dropdown">
-							<a href="services.html">Services</a>
+							<a href="{% url 'services' %}">Services</a>
 							<ul class="dropdown">
 								<li><a href="#">Web Design</a></li>
 								<li><a href="#">eCommerce</a></li>
@@ -108,7 +108,7 @@
 		</div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('{% static 'images/basiakuba.jpg' %}');" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('{% static 'images/zdjecie.png' %}');" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -138,7 +138,7 @@
 			<div class="couple-wrap animate-box">
 				<div class="couple-half">
 					<div class="groom">
-						<img src="{% static 'images/groom.jpg' %}" alt="groom" class="img-responsive">
+						<img src="{% static 'images/jakub.jpg' %}" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-groom">
 						<h3>Jakub Samul</h3>
@@ -148,7 +148,7 @@
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
 				<div class="couple-half">
 					<div class="bride">
-						<img src="{% static 'images/bride.jpg' %}" alt="groom" class="img-responsive">
+						<img src="{% static 'images/basia.jpg' %}" alt="groom" class="img-responsive">
 					</div>
 					<div class="desc-bride">
 						<h3>Barbara Surmacz</h3>
@@ -159,7 +159,7 @@
 		</div>
 	</div>
 
-	<div id="fh5co-event" class="fh5co-bg" src="{% static 'images/img_bg_3.jpg' %}">
+	<div id="fh5co-event" class="fh5co-bg" src="{% static 'images/zdjecie.png' %}">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -236,7 +236,7 @@
 							</div>
 						</li>
 						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url('{% static 'images/couple-2.jpg' %}');"></div>
+							<div class="timeline-badge" style="background-image:url('{% static 'images/jakub.jpg' %}');"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">First Date</h3>
@@ -248,7 +248,7 @@
 							</div>
 						</li>
 						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url('{% static 'images/couple-3.jpg' %}');"></div>
+							<div class="timeline-badge" style="background-image:url('{% static 'images/jakub.jpg' %}');"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">In A Relationship</h3>
@@ -278,7 +278,7 @@
 				<div class="col-md-12">
 					<ul id="fh5co-gallery-list">
 						
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/gallery-1.jpg' %}'); "> 
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/jakub.jpg' %}'); "> 
 						<a href="{% static 'images/gallery-1.jpg' %}">
 							<div class="case-studies-summary">
 								<span>14 Photos</span>
@@ -286,7 +286,7 @@
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/gallery-2.jpg' %}'); ">
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/jakub.jpg' %}'); ">
 						<a href="#" class="color-2">
 							<div class="case-studies-summary">
 								<span>30 Photos</span>
@@ -296,7 +296,7 @@
 					</li>
 
 
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/gallery-3.jpg' %}'); ">
+					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/jakub.jpg' %}'); ">
 						<a href="#" class="color-3">
 							<div class="case-studies-summary">
 								<span>90 Photos</span>
