@@ -68,3 +68,6 @@ class GuestCreateView(SuperUserCheck, CreateView):
 class ServicesPageView(TemplateView):
     template_name = 'contact.html'
 
+class AboutPageView(TemplateView):
+    template_name = 'about.html'
+

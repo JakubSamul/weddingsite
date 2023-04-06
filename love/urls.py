@@ -8,7 +8,8 @@ from .views import (
     GiftsListView,
     GuestCreateView,
     GuestConfListView,
-    ServicesPageView
+    ServicesPageView,
+    AboutPageView
 )
 from .models import Guests, Gifts
 
@@ -16,6 +17,9 @@ urlpatterns = [
     path('', 
          HomePageView.as_view(), 
          name = 'homepage'),
+     path('', 
+         AboutPageView.as_view(), 
+         name = 'about'),
     path('', 
          ServicesPageView.as_view(), 
          name = 'services'),
