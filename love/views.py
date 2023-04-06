@@ -65,3 +65,6 @@ class GuestCreateView(SuperUserCheck, CreateView):
     model = Guests
     template_name = 'side_form.html'
 
+class ServicesPageView(TemplateView):
+    template_name = 'contact.html'
+

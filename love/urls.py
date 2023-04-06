@@ -7,27 +7,31 @@ from .views import (
     LogoutView,
     GiftsListView,
     GuestCreateView,
-    GuestConfListView
+    GuestConfListView,
+    ServicesPageView
 )
 from .models import Guests, Gifts
 
 urlpatterns = [
-     path('', 
+    path('', 
          HomePageView.as_view(), 
          name = 'homepage'),
-     path('login/', 
+    path('', 
+         ServicesPageView.as_view(), 
+         name = 'services'),
+    path('login/', 
          LoginView.as_view(), 
          name = "login"),
-     path('logout/', 
+    path('logout/', 
          LogoutView.as_view(), 
          name = "logout"),
-     path('guestslist/', 
+    path('guestslist/', 
          GuestListView.as_view(), 
          name = 'guests-list'),
     path('guestsconflist/', 
          GuestConfListView.as_view(), 
          name = 'guests-conf-list'),
-     path('guestslist/add/', 
+    path('guestslist/add/', 
          GuestCreateView.as_view(
             model = Guests,
             fields = '__all__',
