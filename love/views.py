@@ -55,6 +55,7 @@ class HomePageView(TemplateView):
 
 class LoginView(LoginView):
     template_name = "login.html"
+    success_url = "index.html"
 
 
 class LogoutView(LogoutView):
