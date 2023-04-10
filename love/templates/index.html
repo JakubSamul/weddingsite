@@ -76,7 +76,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="{% url 'homepage' %}">Wesele<strong>.</strong></a></div>
+					<div id="fh5co-logo"><a href="{% url 'homepage' %}">Wesele</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -136,7 +136,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Hej !</h2>
 					<h3>26 Sierpnień, 2023 Białystok</h3>
-					<p>Zapraszamy Wan do wspólnej celebracji tego szczególnego dla nas dnia.</p>
+					<p>Zapraszamy Was do wspólnej celebracji tego szczególnego dla nas dnia.</p>
 				</div>
 			</div>
 			<div class="couple-wrap animate-box">
@@ -219,7 +219,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<span>Kochamy Się</span>
+					<span>Jesteśmy Zakochani</span>
 					<h2>Nasza Historia</h2>
 					<p></p>
 				</div>
@@ -381,8 +381,8 @@
 								<span class="counter-label">Szacowana ilość osób</span>
 
 							</div>
-						</div>
-						{% comment %} <div class="col-md-3 col-sm-6 animate-box">
+						{% comment %} </div>
+						<div class="col-md-3 col-sm-6 animate-box">
 							<div class="feature-center">
 								<span class="icon">
 									<i class="icon-user"></i>
@@ -410,7 +410,7 @@
 								<span class="counter js-counter" data-from="0" data-to="2345" data-speed="5000" data-refresh-interval="50">1</span>
 								<span class="counter-label">Hours Spent</span>
 
-							</div>  {% endcomment %}
+							</div> {% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -418,7 +418,7 @@
 		</div>
 	</div>
 
-	<div id="fh5co-services" class="fh5co-section-gray">
+	{% comment %} <div id="fh5co-services" class="fh5co-section-gray">
 		<div class="container">
 			
 			<div class="row animate-box">
@@ -472,10 +472,10 @@
 
 			
 		</div>
-	</div>
+	</div> {% endcomment %}
 
 
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url('{% static 'images/zdjecie.png' %}');">
+	{% comment %} <div id="fh5co-started" class="fh5co-bg" style="background-image:url('{% static 'images/zdjecie.png' %}');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
@@ -507,7 +507,7 @@
 			</div>
 		</div>
 	</div>
-
+ {% endcomment %}
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 
