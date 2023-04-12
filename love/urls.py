@@ -11,7 +11,7 @@ from .views import (
     ServicesPageView,
     AboutPageView
 )
-from .models import Guests, Gifts
+from .models import Guest, Gifts
 
 urlpatterns = [
     path('', 
@@ -29,35 +29,35 @@ urlpatterns = [
     path('logout/', 
          LogoutView.as_view(), 
          name = "logout"),
-    path('guestslist/', 
+    path('guestlist/', 
          GuestListView.as_view(), 
-         name = 'guests-list'),
-    path('guestsconflist/', 
+         name = 'guest-list'),
+    path('guestconflist/', 
          GuestConfListView.as_view(), 
-         name = 'guests-conf-list'),
-    path('guestslist/add/', 
+         name = 'guest-conf-list'),
+    path('guestlist/add/', 
          GuestCreateView.as_view(
-            model = Guests,
+            model = Guest,
             fields = '__all__',
-            success_url = reverse_lazy('guests-list'),
-            template_name = 'guests_form.html'
+            success_url = reverse_lazy('guest-list'),
+            template_name = 'guest_form.html'
          ), 
-         name='guests-add'),
-     path('guestslist/<int:pk>/delete/',
+         name='guest-add'),
+     path('guestlist/<int:pk>/delete/',
           DeleteView.as_view(
-               model = Guests,
-               success_url = reverse_lazy('guests-list'),
-               template_name = 'guests_delete.html'
+               model = Guest,
+               success_url = reverse_lazy('guest-list'),
+               template_name = 'guest_delete.html'
           ),
-          name='guests-delete'),
-     path('guestslist/<int:pk>/edit/',
+          name='guest-delete'),
+     path('guestlist/<int:pk>/edit/',
          UpdateView.as_view(
-            model=Guests,
+            model=Guest,
             fields='__all__',
-            success_url=reverse_lazy('guests-list'),
-            template_name='guests_update.html'
+            success_url=reverse_lazy('guest-list'),
+            template_name='guest_update.html'
          ),
-         name = 'guests-update'),
+         name = 'guest-update'),
      path('giftslist/',
           GiftsListView.as_view(),
           name = 'gifts-list'),

@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+
+{% block content %}
+<style>
+table, td, td {
+  border:1px solid black;
+}
+</style>
+<h1>Lista Prezentów</h1>
+<h5><a href={% url "homepage" %}>Strona Główna</a> </h5>
+{% if user.is_superuser %}
+<h5><a href={% url "guest-add" %}>Dodaj kolejnego gościa</a></h5>
+{% endif %}
+    <table>
+    <tr>
+        <td><b>L.P.</b></td>
+        <td><b>Imię i nazwisko</b></td>
+        <td><b>Strona</b></td>
+        <td><b>Potwierdzenie</b></td>
+        <td><b>Preferencje</b></td>
+        <td><b></b></td>
+    </tr>
+    {% for guest in guest_list %}
+        <tr>
+            <td>{{ page_obj.start_index|add:forloop.counter0 }}.</td>
+            <td>{{ guest.name }} {{ guest.surname }}</td>
+            <td>{{ guest.side|default:"-" }}</td>
+            <td>{{ guest.confirmation|default:"-" }}</td>
+            <td>{{ guest.preferences|default:"-" }}</td>            
+            <td>
+                {% if user.is_superuser %}
+                <a href={% url "guest-update" guest.id %}>update</a>
+                <a href={% url "guest-delete" guest.id %}>delete</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

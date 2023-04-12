@@ -9,8 +9,8 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guests, Gifts
-from .forms import GuestsSearchForm
+from .models import Guest, Gifts
+from .forms import GuestSearchForm
 from .reports import summary_per_category
 from django.contrib.auth.mixins import UserPassesTestMixin
 
@@ -21,13 +21,13 @@ class SuperUserCheck(UserPassesTestMixin):
 
 
 class GuestListView(SuperUserCheck, ListView):
-    model = Guests
-    template_name = 'guests_list.html'
+    model = Guest
+    template_name = 'guest_list.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         queryset = object_list if object_list is not None else self.object_list
 
-        form = GuestsSearchForm(self.request.GET)
+        form = GuestSearchForm(self.request.GET)
         if form.is_valid():
             name = form.cleaned_data.get('name', '').strip()
             if name:
@@ -40,8 +40,8 @@ class GuestListView(SuperUserCheck, ListView):
 
 
 class GuestConfListView(ListView):
-    model = Guests
-    template_name = 'guestsconf_list.html'
+    model = Guest
+    template_name = 'guestconf_list.html'
 
 
 class GiftsListView(ListView):
@@ -63,7 +63,7 @@ class LogoutView(LogoutView):
 
 
 class GuestCreateView(SuperUserCheck, CreateView):
-    model = Guests
+    model = Guest
     template_name = 'side_form.html'
 
 class ServicesPageView(TemplateView):

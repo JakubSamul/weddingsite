@@ -82,8 +82,8 @@
 					<ul>
 						{% if user.is_authenticated %}
 						<li class="active"><a href="{% url 'logout' %}">Wyloguj</a></li>
-						<li><a href="#">Nasza historia</a></li>
-						<li class="has-dropdown">
+						{% comment %} <li><a href="#">Nasza historia</a></li> {% endcomment %}
+						{% comment %} <li class="has-dropdown">
 							<a href="#">Services</a>
 							<ul class="dropdown">
 								<li><a href="#">Web Design</a></li>
@@ -99,7 +99,7 @@
 								<li><a href="#">CSS3</a></li>
 								<li><a href="#">Sass</a></li>
 								<li><a href="#">jQuery</a></li>
-							</ul>
+							</ul> {% endcomment %}
 						</li>
 						<li><a href="#">Kontakt</a></li>
 						{% else %}
