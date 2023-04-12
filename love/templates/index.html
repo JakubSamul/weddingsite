@@ -82,6 +82,7 @@
 					<ul>
 						{% if user.is_authenticated %}
 						<li class="active"><a href="{% url 'logout' %}">Wyloguj</a></li>
+						<li class="active"><a href="{% url 'confirmation-update' %}">Potwierdz Przybycie</a></li>
 						{% comment %} <li><a href="#">Nasza historia</a></li> {% endcomment %}
 						{% comment %} <li class="has-dropdown">
 							<a href="#">Services</a>

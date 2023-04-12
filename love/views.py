@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import (
     CreateView,
@@ -9,8 +11,8 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guest, Gifts
-from .forms import GuestSearchForm
+from .models import Guests, Gifts
+from .forms import GuestsSearchForm, UserChangeForm
 from .reports import summary_per_category
 from django.contrib.auth.mixins import UserPassesTestMixin
 
@@ -21,13 +23,13 @@ class SuperUserCheck(UserPassesTestMixin):
 
 
 class GuestListView(SuperUserCheck, ListView):
-    model = Guest
-    template_name = 'guest_list.html'
+    model = Guests
+    template_name = 'guests_list.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         queryset = object_list if object_list is not None else self.object_list
 
-        form = GuestSearchForm(self.request.GET)
+        form = GuestsSearchForm(self.request.GET)
         if form.is_valid():
             name = form.cleaned_data.get('name', '').strip()
             if name:
@@ -40,8 +42,8 @@ class GuestListView(SuperUserCheck, ListView):
 
 
 class GuestConfListView(ListView):
-    model = Guest
-    template_name = 'guestconf_list.html'
+    model = Guests
+    template_name = 'guestsconf_list.html'
 
 
 class GiftsListView(ListView):
@@ -63,7 +65,7 @@ class LogoutView(LogoutView):
 
 
 class GuestCreateView(SuperUserCheck, CreateView):
-    model = Guest
+    model = Guests
     template_name = 'side_form.html'
 
 class ServicesPageView(TemplateView):
@@ -71,4 +73,12 @@ class ServicesPageView(TemplateView):
 
 class AboutPageView(TemplateView):
     template_name = 'about.html'
+
+class ConfirmationView(UpdateView):
+    model = Guests
+    form_class = UserChangeForm
+    template_name = "confirmation.html"
+
+    def get_object(self):
+        return get_object_or_404(Guests, id=self.request.user.id)
 

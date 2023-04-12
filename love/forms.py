@@ -1,10 +1,10 @@
 from django import forms
-from .models import Guest
+from .models import Guests
 from django.contrib.auth.forms import UserChangeForm as AdminForm
 
-class GuestSearchForm(forms.ModelForm):
+class GuestsSearchForm(forms.ModelForm):
     class Meta:
-        model = Guest
+        model = Guests
         fields = ('name',)
 
     def __init__(self, *args, **kwargs):
@@ -14,5 +14,5 @@ class GuestSearchForm(forms.ModelForm):
 
 class UserChangeForm(AdminForm):
     class Meta:
-        model = Guest
+        model = Guests
         fields = "__all__"

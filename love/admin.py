@@ -25,7 +25,7 @@ sensitive_post_parameters_m = method_decorator(sensitive_post_parameters())
 
 
 
-from .models import Guest
+from .models import Guests
 
 # Register your models here.
 class GuestAdmin(admin.ModelAdmin):
@@ -164,6 +164,6 @@ class GuestAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Guest,GuestAdmin)
+admin.site.register(Guests,GuestAdmin)
 
 

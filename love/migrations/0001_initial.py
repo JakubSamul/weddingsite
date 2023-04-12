@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name="Guest",
+            name="Guests",
             fields=[
                 (
                     "id",

@@ -9,9 +9,10 @@ from .views import (
     GuestCreateView,
     GuestConfListView,
     ServicesPageView,
-    AboutPageView
+    AboutPageView,
+    ConfirmationView
 )
-from .models import Guest, Gifts
+from .models import Guests, Gifts
 
 urlpatterns = [
     path('', 
@@ -29,35 +30,35 @@ urlpatterns = [
     path('logout/', 
          LogoutView.as_view(), 
          name = "logout"),
-    path('guestlist/', 
+    path('guestslist/', 
          GuestListView.as_view(), 
-         name = 'guest-list'),
-    path('guestconflist/', 
+         name = 'guests-list'),
+    path('guestsconflist/', 
          GuestConfListView.as_view(), 
-         name = 'guest-conf-list'),
-    path('guestlist/add/', 
+         name = 'guests-conf-list'),
+    path('guestslist/add/', 
          GuestCreateView.as_view(
-            model = Guest,
+            model = Guests,
             fields = '__all__',
-            success_url = reverse_lazy('guest-list'),
-            template_name = 'guest_form.html'
+            success_url = reverse_lazy('guests-list'),
+            template_name = 'guests_form.html'
          ), 
-         name='guest-add'),
-     path('guestlist/<int:pk>/delete/',
+         name='guests-add'),
+     path('guestslist/<int:pk>/delete/',
           DeleteView.as_view(
-               model = Guest,
-               success_url = reverse_lazy('guest-list'),
-               template_name = 'guest_delete.html'
+               model = Guests,
+               success_url = reverse_lazy('guests-list'),
+               template_name = 'guests_delete.html'
           ),
-          name='guest-delete'),
-     path('guestlist/<int:pk>/edit/',
+          name='guests-delete'),
+     path('guestslist/<int:pk>/edit/',
          UpdateView.as_view(
-            model=Guest,
+            model=Guests,
             fields='__all__',
-            success_url=reverse_lazy('guest-list'),
-            template_name='guest_update.html'
+            success_url=reverse_lazy('guests-list'),
+            template_name='guests_update.html'
          ),
-         name = 'guest-update'),
+         name = 'guests-update'),
      path('giftslist/',
           GiftsListView.as_view(),
           name = 'gifts-list'),
@@ -84,4 +85,9 @@ urlpatterns = [
             template_name='gifts_update.html'
          ),
          name = 'gifts-update'),
+     path('confirmation/',
+         ConfirmationView.as_view(
+          success_url=reverse_lazy('homepage')
+         ),
+         name = 'confirmation-update'),
 ]
