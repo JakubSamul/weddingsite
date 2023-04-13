@@ -35,16 +35,6 @@ class GuestAdmin(admin.ModelAdmin):
     form = UserChangeForm
     change_password_form = AdminPasswordChangeForm
     change_user_password_template = None
-    
-    def get_form(self, request, obj=None, **kwargs):
-        """
-        Use special form during user creation
-        """
-        defaults = {}
-        if obj is None:
-            defaults["form"] = self.add_form
-        defaults.update(kwargs)
-        return super().get_form(request, obj, **defaults)
 
     def get_urls(self):
         return [

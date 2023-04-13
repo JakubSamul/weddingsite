@@ -12,7 +12,7 @@ from django.views.generic import (
     UpdateView
 )
 from .models import Guests, Gifts
-from .forms import GuestsSearchForm, UserChangeForm
+from .forms import GuestsSearchForm, UserChangeForm2
 from .reports import summary_per_category
 from django.contrib.auth.mixins import UserPassesTestMixin
 
@@ -68,15 +68,10 @@ class GuestCreateView(SuperUserCheck, CreateView):
     model = Guests
     template_name = 'side_form.html'
 
-class ServicesPageView(TemplateView):
-    template_name = 'contact.html'
-
-class AboutPageView(TemplateView):
-    template_name = 'about.html'
-
 class ConfirmationView(UpdateView):
     model = Guests
-    form_class = UserChangeForm
+    form_class = UserChangeForm2
+    success_url = reverse_lazy('homepage')
     template_name = "confirmation.html"
 
     def get_object(self):

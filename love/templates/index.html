@@ -76,7 +76,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="{% url 'homepage' %}">Wesele</a></div>
+					<div id="fh5co-logo"><a href="{% url 'homepage' %}">Witaj</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -101,11 +101,10 @@
 								<li><a href="#">Sass</a></li>
 								<li><a href="#">jQuery</a></li>
 							</ul> {% endcomment %}
-						</li>
-						<li><a href="#">Kontakt</a></li>
+						{% comment %} <li><a href="#">Kontakt</a></li> {% endcomment %}
 						{% else %}
 						<li class="active"><a href="{% url 'login' %}">Zaloguj</a></li>
-						<li><a href="#">Kontakt</a></li>
+						{% comment %} <li><a href="#">Kontakt</a></li> {% endcomment %}
 						{% endif %}
 					</ul>
 				</div>
@@ -136,7 +135,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Hej !</h2>
-					<h3>26 Sierpnień, 2023 Białystok</h3>
+					<h3>26 Sierpnia, 2023 Białystok</h3>
 					<p>Zapraszamy Was do wspólnej celebracji tego szczególnego dla nas dnia.</p>
 				</div>
 			</div>

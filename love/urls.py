@@ -8,8 +8,6 @@ from .views import (
     GiftsListView,
     GuestCreateView,
     GuestConfListView,
-    ServicesPageView,
-    AboutPageView,
     ConfirmationView
 )
 from .models import Guests, Gifts
@@ -18,12 +16,6 @@ urlpatterns = [
     path('', 
          HomePageView.as_view(), 
          name = 'homepage'),
-     path('', 
-         AboutPageView.as_view(), 
-         name = 'about'),
-    path('', 
-         ServicesPageView.as_view(), 
-         name = 'services'),
     path('login/', 
          LoginView.as_view(), 
          name = "login"),
@@ -86,8 +78,6 @@ urlpatterns = [
          ),
          name = 'gifts-update'),
      path('confirmation/',
-         ConfirmationView.as_view(
-          success_url=reverse_lazy('homepage')
-         ),
+         ConfirmationView.as_view(),
          name = 'confirmation-update'),
 ]

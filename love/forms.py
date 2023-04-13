@@ -16,3 +16,9 @@ class UserChangeForm(AdminForm):
     class Meta:
         model = Guests
         fields = "__all__"
+
+
+class UserChangeForm2(AdminForm):
+    class Meta:
+        model = Guests
+        fields = ["confirmation"]
