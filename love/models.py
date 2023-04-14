@@ -29,12 +29,6 @@ class Guests(AbstractUser):
             self.set_password("domyslne")
         return super().save(*args, **kwargs)
     
-
-class Gifts(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f'{self.name}'
     
 @receiver(m2m_changed, sender=Guests.accompanying.through)
 def update_persons(sender, instance, **kwargs):

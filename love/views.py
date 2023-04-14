@@ -11,7 +11,7 @@ from django.views.generic import (
     TemplateView,
     UpdateView
 )
-from .models import Guests, Gifts
+from .models import Guests
 from .forms import GuestsSearchForm, UserChangeForm2
 from .reports import summary_per_category
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -46,11 +46,6 @@ class GuestConfListView(ListView):
     template_name = 'guestsconf_list.html'
 
 
-class GiftsListView(ListView):
-    model = Gifts
-    template_name = 'gifts_list.html'
-
-
 class HomePageView(TemplateView):
     template_name = 'index.html'
 
@@ -63,10 +58,6 @@ class LoginView(LoginView):
 class LogoutView(LogoutView):
     template_name = "logout.html"
 
-
-class GuestCreateView(SuperUserCheck, CreateView):
-    model = Guests
-    template_name = 'side_form.html'
 
 class ConfirmationView(UpdateView):
     model = Guests

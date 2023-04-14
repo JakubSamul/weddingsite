@@ -68,18 +68,42 @@
 
     </head>
     <body>
-        <h2>Logowanie na stronę</h2>
-        <div style="margin-left:35%;margin-right:35%;">
-        <fieldset>
-            <form method="post" action=".">
-            {% csrf_token %}
-            <div style="text-align:left";>{{ form.as_p }}</div>
-            <input type="hidden" name="next" value="/" />
-            <input type="submit" value="Logowanie"/>    <input type="reset" value="Wartości domyślne"/>
-        </form>
-        </fieldset>
+        <nav class="fh5co-nav" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            <li class="active"><a href="{% url 'homepage' %}">Strona główna</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+        <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url('{% static 'images/zdjecie.png' %}');" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <div class="display-t">
+                            <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                            <h2>Logowanie na stronę</h2>
+                            <div style="margin-left:35%;margin-right:35%;">
+                            <fieldset>
+                                <form method="post" action=".">
+                                {% csrf_token %}
+                                <div style="text-align:left";>{{ form.as_p }}</div>
+                                <input type="hidden" name="next" value="/" />
+                                <input type="submit" value="Logowanie"/>    <input type="reset" value="Wartości domyślne"/>
+                                </form>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+    </header>
+                            
         <footer id="fh5co-footer" role="contentinfo">
             <div class="container">
     
