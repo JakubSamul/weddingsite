@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #828282;
+  color: #000000;
   background: #fff;
 }
 
@@ -536,8 +536,8 @@ h1, h2, h3, h4, h5, h6, figure {
   background-repeat: no-repeat;
   position: relative;
   color: #fff;
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 180px;
   line-height: 50px;
   font-size: 1.4em;
   text-align: center;
@@ -1080,7 +1080,7 @@ form label {
 }
 .couple-half .groom img, .couple-half .bride img {
   width: 150px;
-  height: 150px;
+  height: 220px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;

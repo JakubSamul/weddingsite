@@ -89,10 +89,9 @@
                             <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <form method="post" action=".">
                                 {% csrf_token %}
-                                <h1>Czy potwierdzasz przybycie ?</h1>
+                                <h1>Twoje preferencje żywieniowe</h1>
                                 <h1> </h1>
-                                {{form.confirmation}}
-                                {{form.others}}
+                                {{form.preferences}}
                                 <h1> </h1>
                                 <button type="submit">Potwierdzam</button>
                             </form>

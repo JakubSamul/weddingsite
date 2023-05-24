@@ -67,4 +67,22 @@ class ConfirmationView(UpdateView):
 
     def get_object(self):
         return get_object_or_404(Guests, id=self.request.user.id)
+    
+class PreferencesView(UpdateView):
+    model = Guests
+    form_class = UserChangeForm2
+    success_url = reverse_lazy('homepage')
+    template_name = "preferences.html"
+
+    def get_object(self):
+        return get_object_or_404(Guests, id=self.request.user.id)
+    
+class BusView(UpdateView):
+    model = Guests
+    fields = ["bus_from_k", "bus_from_b", "choice_bus"]
+    success_url = reverse_lazy('homepage')
+    template_name = "bus.html"
+
+    def get_object(self):
+        return get_object_or_404(Guests, id=self.request.user.id)
 

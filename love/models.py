@@ -14,12 +14,19 @@ class Guests(AbstractUser):
         ('KUBA','Kuba'),
         ('BASIA','Basia')
     ]
+    BUS = [
+        {'BUS_B','bus_bialystok'},
+        {'BUS_K','bus_kolno'}
+    ]
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     side = models.CharField(choices=SIDE, null=True, blank=True, max_length=5)
     confirmation = models.BooleanField(default=False, blank=True)
     accompanying = models.ManyToManyField('Guests', blank=True)
     preferences = models.CharField(choices=FOODS, null=True, blank=True, max_length=4)
+    bus_from_k = models.BooleanField(default=False, blank=True)
+    bus_from_b = models.BooleanField(default=False, blank=True)
+    choice_bus = models.CharField(choices=BUS, null=True, blank=True, max_length=15)
 
     def __str__(self):
         return f'{self.name}'

@@ -89,12 +89,11 @@
                             <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <form method="post" action=".">
                                 {% csrf_token %}
-                                <h1>Czy potwierdzasz przybycie ?</h1>
-                                <h1> </h1>
-                                {{form.confirmation}}
-                                {{form.others}}
-                                <h1> </h1>
+                                {% if guests.choice_bus == "bus_kolno" %}
+                                <h1>Czy jesteś zainteresowana/zainteresowany transportem autokarowym Kolno - Białystok i Białystok - Kolno ?</h1>
+                                {{form.bus_from_k}}
                                 <button type="submit">Potwierdzam</button>
+                                {% endif %}
                             </form>
                             </div>
                         </div>
@@ -183,5 +182,4 @@
     
         </body>
 </html>
-    
     

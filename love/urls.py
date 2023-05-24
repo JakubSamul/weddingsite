@@ -4,7 +4,9 @@ from .views import (
     HomePageView,
     LoginView,
     LogoutView,
-    ConfirmationView
+    ConfirmationView,
+    PreferencesView,
+    BusView
 )
 
 urlpatterns = [
@@ -20,4 +22,10 @@ urlpatterns = [
      path('confirmation/',
          ConfirmationView.as_view(),
          name = 'confirmation-update'),
+    path('preferences/',
+         PreferencesView.as_view(),
+         name = 'preferences-update'),
+    path('bus/',
+         BusView.as_view(),
+         name = 'bus-update'),
 ]

@@ -82,7 +82,9 @@
 					<ul>
 						{% if user.is_authenticated %}
 						<li class="active"><a href="{% url 'logout' %}">Wyloguj</a></li>
-						<li class="active"><a href="{% url 'confirmation-update' %}">Potwierdz Przybycie</a></li>
+						<li class="active"><a href="{% url 'confirmation-update' %}">Potwierdzenie przybycia</a></li>
+						<li class="active"><a href="{% url 'preferences-update' %}">Preferencje żywieniowe</a></li>
+						<li class="active"><a href="{% url 'bus-update' %}">Transport</a></li>
 						{% comment %} <li><a href="#">Nasza historia</a></li> {% endcomment %}
 						{% comment %} <li class="has-dropdown">
 							<a href="#">Services</a>
@@ -240,10 +242,10 @@
 							</div>
 						</li>
 						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url('{% static 'images/zdjecie.png' %}');"></div>
+							<div class="timeline-badge" style="background-image:url('{% static 'images/pierscionek.jpg' %}');"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Pierwsza Randka</h3>
+									<h3 class="timeline-title">Zaręczyny</h3>
 									<span class="date"></span>
 								</div>
 								<div class="timeline-body">
@@ -252,7 +254,7 @@
 							</div>
 						</li>
 						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url('{% static 'images/zdjecie.png' %}');"></div>
+							<div class="timeline-badge" style="background-image:url('{% static 'images/wspolne.jpg' %}');"></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">W Związku</h3>
@@ -282,11 +284,11 @@
 				<div class="col-md-12">
 					<ul id="fh5co-gallery-list">
 						
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/zdjecie.png' %}'); "> 
-						<a href="{% static 'images/zdjecie.png' %}">
+						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{% static 'images/zareczyny.jpg' %}'); "> 
+						<a href="{% static 'images/zareczyny.jpg' %}">
 							<div class="case-studies-summary">
 								<span>Photos</span>
-								<h2>xyz</h2>
+								<h2>Zaręczyny</h2>
 							</div>
 						</a>
 					</li>
