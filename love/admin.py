@@ -29,8 +29,8 @@ from .models import Guests
 
 # Register your models here.
 class GuestAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "surname", "side", "confirmation", "preferences")
-    list_filter = ("side", "confirmation", "preferences")
+    list_display = ("id", "name", "surname", "side", "confirmation", "preferences", "bus_from_k")
+    list_filter = ("side", "confirmation", "preferences", "bus_from_k")
     filter_horizontal = ('accompanying',)
     form = UserChangeForm
     change_password_form = AdminPasswordChangeForm
